@@ -9,7 +9,8 @@ module ErrorReady
         source: source
       ).format
 
-      binding.break
+      # Save to database
+      Database.new(formatted_error).call
     end
   end
 end

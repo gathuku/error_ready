@@ -10,12 +10,13 @@ module ErrorReady
 
     def format
       {
-        error_message: @error.message,
-        error_class: @error.class,
+        message: @error.message,
+        err_class: @error.class.to_s,
         backtrace: @error.backtrace,
-        severity: @severity,
-        context: @context,
-        source: @source
+        severity: @severity.to_s,
+        context: @context.transform_values(&:to_s),
+        source: @source,
+        environment: Rails.env
       }
     end
   end
