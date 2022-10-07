@@ -1,14 +1,10 @@
 <p style="color: green"><%= notice %></p>
+<div class="mt-3">
+  <h1 class="font-bold text-gray-700 leading-tight text-2xl">Problems</h1>
 
-<h1>Problems</h1>
-
-<div id="problems">
-  <% @problems.each do |problem| %>
-    <%= render problem %>
-    <p>
-      <%= link_to "Show this problem", problem %>
-    </p>
-  <% end %>
+  <div id="problems" class="mt-3">
+    <ul class="divide-y">
+     <%= render @problems %>
+    </ul>
+  </div>
 </div>
-
-<%= link_to "New problem", new_problem_path %>

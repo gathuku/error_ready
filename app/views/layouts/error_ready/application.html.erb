@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Error ready</title>
+  <title>Error ready | <%= Rails.application.class.module_parent_name %></title>
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
 
   <%= stylesheet_link_tag    "error_ready/application", media: "all" %>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-
-<%= yield %>
-
+<body class="min-h-screen">
+  <div class="mx-auto md:max-w-4xl">
+    <%= yield %>
+  </div>
 </body>
 </html>
