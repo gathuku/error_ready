@@ -1,8 +1,10 @@
 # ErrorReady
-Short description and motivation.
+A plugin thats records errors and store them in the database you already have.
+
+![Showcase image](app/assets/images/error_ready/showcase.png)
 
 ## Usage
-How to use my plugin.
+coming soon
 
 ## Installation
 Add this line to your application's Gemfile:
