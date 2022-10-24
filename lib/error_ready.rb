@@ -8,4 +8,6 @@ module ErrorReady
 
   # notifiers
   autoload :Database, "error_ready/notifiers/database"
+  autoload :SyncSender, "error_ready/notifiers/sync_sender"
+  autoload :AsyncSender, "error_ready/notifiers/async_sender"
 end
