@@ -11,6 +11,9 @@ module ErrorReady
 
       # Save to database
       Database.new(formatted_error).call
+
+      # send Async
+      AsyncSender.new(formatted_error).call
     end
   end
 end
