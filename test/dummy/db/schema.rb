@@ -33,5 +33,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_05_135120) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "notices", force: :cascade do |t|
+    t.integer "problem_id", null: false
+    t.json "backtrace"
+    t.json "context"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["problem_id"], name: "index_notices_on_problem_id"
+  end
+
   add_foreign_key "error_ready_notices", "error_ready_problems"
+  add_foreign_key "notices", "problems"
 end
