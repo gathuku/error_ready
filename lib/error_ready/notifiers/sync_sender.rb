@@ -2,6 +2,8 @@ require 'net/http'
 
 module ErrorReady
   class SyncSender
+    include Concurrent::Async
+
     def initialize(formatted_error)
       @error = formatted_error
     end

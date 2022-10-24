@@ -2,6 +2,7 @@ PATH
   remote: .
   specs:
     error_ready (0.1.0)
+      concurrent-ruby (~> 1.1)
       rails (>= 7.0.4)
 
 GEM
