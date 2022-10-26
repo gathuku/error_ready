@@ -1,3 +1,5 @@
 ErrorReady::Engine.routes.draw do
-  resources :problems
+  resources :problems do
+    resource :resolve, only: [:create], controller: :problem_resolves
+  end
 end
