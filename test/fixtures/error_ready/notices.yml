@@ -1,11 +1,20 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
 one:
   problem: one
-  backtrace: 
+  backtrace:
+    - 'puma/thread_pool.rb:147'
+    - 'puma/thread_pool.rb:147'
+    - 'puma/thread_pool.rb:147'
   context: 
-
+    server_name: "localhost"
+    http_host: "localhost:3000"
+    http_user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:104.0) Gecko/20100101 Firefox/104.0"
 two:
-  problem: two
-  backtrace: 
-  context: 
+  problem: one
+  backtrace:
+    - 'puma/thread_pool.rb:147'
+    - 'puma/thread_pool.rb:147'
+    - 'puma/thread_pool.rb:147'
+  context:
+    server_name: "localhost"
+    http_host: "localhost:3000"
+    http_user_agent: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:104.0) Gecko/20100101 Firefox/104.0"

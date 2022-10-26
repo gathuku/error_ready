@@ -11,12 +11,6 @@ module ErrorReady
     def show
     end
 
-    # DELETE /problems/1
-    def destroy
-      @problem.destroy
-      redirect_to problems_url, notice: "Problem was successfully destroyed."
-    end
-
     private
       # Use callbacks to share common setup or constraints between actions.
       def set_problem
