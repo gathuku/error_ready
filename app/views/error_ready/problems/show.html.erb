@@ -10,14 +10,12 @@
   <%= @problem.message %>
  </div>
 
- <% if @problem.notices.any? %>
-  <div class="mt-3">
-    <span class="font-semibold">Context:</span>
-    <% @problem.notices.first.context.each do |k,v| %>
-      <span class="block"><%= k.gsub('_', ' ').capitalize %>: <%= v %></span>
-    <% end %>
-  </div>
- <% end %>
+ <div class="mt-3">
+  <span class="font-semibold">Context:</span>
+  <% @problem.notices.first.context.each do |k,v| %>
+    <span class="block"><%= k.gsub('_', ' ').capitalize %>: <%= v %></span>
+  <% end %>
+ </div>
 
  <div class="mt-3">
   <span class="font-semibold">Backtrace:</span>
