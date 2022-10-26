@@ -18,13 +18,5 @@ module ErrorReady
       get problem_url(@problem)
       assert_response :success
     end
-
-    test "should destroy problem" do
-      assert_difference("Problem.count", -1) do
-        delete problem_url(@problem)
-      end
-
-      assert_redirected_to problems_url
-    end
   end
 end
