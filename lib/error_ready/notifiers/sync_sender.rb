@@ -13,6 +13,7 @@ module ErrorReady
       http.use_ssl = true
       req = Net::HTTP::Post.new(uri)
       req['Content-type'] = "application/json"
+      req['APP-SECRET'] = ErrorReady.configuration.app_secret
       req.body = @error.to_json
       res = http.request(req)
 
@@ -29,7 +30,7 @@ module ErrorReady
     end
 
     def uri
-      @uri ||= URI('https://errorready.free.beeceptor.com')
+      @uri ||= URI(ErrorReady.configuration.host)
     end
 
   end
