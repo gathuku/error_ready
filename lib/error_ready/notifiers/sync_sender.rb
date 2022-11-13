@@ -12,6 +12,7 @@ module ErrorReady
       http = Net::HTTP.new(uri.hostname, uri.port)
       http.use_ssl = true
       req = Net::HTTP::Post.new(uri)
+      req['Content-type'] = "application/json"
       req.body = @error.to_json
       res = http.request(req)
 
