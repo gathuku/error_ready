@@ -10,7 +10,7 @@ module ErrorReady
 
     def call
       http = Net::HTTP.new(uri.hostname, uri.port)
-      http.use_ssl = true
+      http.use_ssl = true if uri.port == 443
       req = Net::HTTP::Post.new(uri)
       req['Content-type'] = "application/json"
       req['APP-SECRET'] = ErrorReady.configuration.app_secret
@@ -19,14 +19,20 @@ module ErrorReady
 
       case res
       when Net::HTTPSuccess, Net::HTTPOK
-        Rails.logger.debug ActiveSupport::LogSubscriber.new.send(:color, "Error sent to #{uri.hostname}", :green, true)
+        log_message("error sent to #{uri.hostname}", :green)
+      when Net::HTTPUnauthorized
+        log_message("unauthorized, ensure you add app_secret on config file")
       when Net::HTTPBadRequest
-        Rails.logger.debug "Bad request"
+        log_message("bad request")
       when HTTPServerError
-        Rails.logger.debug "server error"
+        log_message("server error")
       else
-        Rails.logger.debug "Something wrong"
+        log_message("something wrong")
       end
+    end
+
+    def log_message(msg, color = :red)
+      Rails.logger.debug ActiveSupport::LogSubscriber.new.send(:color, "ErrorReady: #{msg}", color, true)
     end
 
     def uri
