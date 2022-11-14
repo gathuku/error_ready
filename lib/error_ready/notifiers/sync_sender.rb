@@ -13,11 +13,14 @@ module ErrorReady
       http.use_ssl = true if uri.port == 443
       req = Net::HTTP::Post.new(uri)
       req['Content-type'] = "application/json"
-      req['APP-SECRET'] = ErrorReady.configuration.app_secret
+      req['APP-SECRET'] = app_secret
       req.body = @error.to_json
       res = http.request(req)
+      handle_response(res)
+    end
 
-      case res
+    def handle_response(response)
+      case response
       when Net::HTTPSuccess, Net::HTTPOK
         log_message("error sent to #{uri.hostname}", :green)
       when Net::HTTPUnauthorized
@@ -29,6 +32,10 @@ module ErrorReady
       else
         log_message("something wrong")
       end
+    end
+
+    def app_secret
+      ErrorReady.configuration.app_secret
     end
 
     def log_message(msg, color = :red)
