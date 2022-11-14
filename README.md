@@ -1,7 +1,5 @@
 # ErrorReady
-A plugin thats records errors and store them in the database you already have.
-
-![Showcase image](app/assets/images/error_ready/showcase.png)
+Error recording for Rails 7 applications
 
 ## Usage
 coming soon
