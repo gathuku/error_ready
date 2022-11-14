@@ -8,10 +8,10 @@ class ErrorReadyTest < ActiveSupport::TestCase
   test "configuration" do
     ErrorReady.configure do |config|
       config.host = "test.com"
-      config.api_key = '1234'
+      config.app_secret = '1234'
     end
 
     assert_equal "test.com", ErrorReady.configuration.host
-    assert_equal "1234", ErrorReady.configuration.api_key
+    assert_equal "1234", ErrorReady.configuration.app_secret
   end
 end
