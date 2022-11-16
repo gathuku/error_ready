@@ -12,13 +12,13 @@ module ErrorReady
       {
         message: @error.exception.message,
         err_class: @error.exception.class.to_s,
-        full_trace: @error.full_trace,
-        application_trace: @error.application_trace,
-        source_to_show: @error.source_extracts[@error.source_to_show_id],
         severity: @severity.to_s,
-        context: @context.transform_values(&:to_s),
         source: @source,
-        environment: Rails.env
+        environment: Rails.env,
+        context: @context.transform_values(&:to_s),
+        source_to_show: @error.source_extracts[@error.source_to_show_id],
+        application_trace: @error.application_trace,
+        full_trace: @error.full_trace
       }
     end
 
