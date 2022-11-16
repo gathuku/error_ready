@@ -1,4 +1,4 @@
-require 'net/http'
+require "net/http"
 
 module ErrorReady
   class SyncSender
@@ -9,14 +9,17 @@ module ErrorReady
     end
 
     def call
+      handle_response(send_request)
+    end
+
+    def send_request
       http = Net::HTTP.new(uri.hostname, uri.port)
       http.use_ssl = true if uri.port == 443
       req = Net::HTTP::Post.new(uri)
-      req['Content-type'] = "application/json"
-      req['APP-SECRET'] = app_secret
+      req["Content-type"] = "application/json"
+      req["APP-SECRET"] = app_secret
       req.body = @error.to_json
-      res = http.request(req)
-      handle_response(res)
+      http.request(req)
     end
 
     def handle_response(response)
@@ -45,6 +48,5 @@ module ErrorReady
     def uri
       @uri ||= URI(ErrorReady.configuration.host)
     end
-
   end
 end
