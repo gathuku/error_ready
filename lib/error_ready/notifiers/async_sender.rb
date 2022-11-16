@@ -1,6 +1,5 @@
 module ErrorReady
   class AsyncSender
-
     def initialize(formatted_error)
       @error = formatted_error
     end

@@ -1,7 +1,7 @@
 module ErrorReady
   class Formatter
     def initialize(error:, handled:, severity:, context:, source: nil)
-      @error = error 
+      @error = error
       @handled = handled
       @severity = severity
       @context = context

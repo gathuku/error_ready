@@ -32,6 +32,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_05_135120) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-  
+
   add_foreign_key "error_ready_notices", "error_ready_problems"
 end

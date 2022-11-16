@@ -3,7 +3,7 @@ require "error_ready/engine"
 
 module ErrorReady
   autoload :Subscriber, "error_ready/subscriber"
-  autoload :Formatter, 'error_ready/formatter'
+  autoload :Formatter, "error_ready/formatter"
   autoload :Configuration, "error_ready/configuration"
 
   # middlewares
@@ -20,6 +20,10 @@ module ErrorReady
 
     def configure
       yield configuration
+    end
+
+    def root
+      File.dirname __dir__
     end
   end
 end
