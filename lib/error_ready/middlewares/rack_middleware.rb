@@ -12,7 +12,7 @@ module ErrorReady
         server_name: env["SERVER_NAME"],
         http_host: env["HTTP_HOST"],
         http_user_agent: env["HTTP_USER_AGENT"],
-        session: env["rack.session"].to_h
+        session: env["rack.session"].to_json
       )
 
       Rails.error.record do
