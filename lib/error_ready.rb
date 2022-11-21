@@ -8,6 +8,7 @@ module ErrorReady
 
   # middlewares
   autoload :RackMiddleware, "error_ready/middlewares/rack_middleware"
+  autoload :SidekiqMiddleware, "error_ready/middlewares/sidekiq_middleware"
 
   # notifiers
   autoload :SyncSender, "error_ready/notifiers/sync_sender"
