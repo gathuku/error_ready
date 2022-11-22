@@ -10,6 +10,8 @@ module ErrorReady
       ).format
 
       # send Async
+      return if ErrorReady.configuration.ignored_environments.include?(Rails.env)
+
       AsyncSender.new(formatted_error).call
     end
   end
