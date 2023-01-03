@@ -4,7 +4,7 @@ require "generators/error_ready/install_generator"
 class InstallGeneratorTest < Rails::Generators::TestCase
   tests ErrorReady::Generators::InstallGenerator
 
-  destination File.expand_path("../tmp", __dir__)
+  destination File.expand_path("../../tmp", __dir__)
 
   setup :prepare_destination
 
