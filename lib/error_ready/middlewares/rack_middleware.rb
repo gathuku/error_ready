@@ -6,7 +6,9 @@ module ErrorReady
 
     def call(env)
       # Load session
-      env["rack.session"]["init"] = true
+      if env["rack.session"]
+        env["rack.session"]["init"] = true
+      end
 
       Rails.error.set_context(
         server_name: env["SERVER_NAME"],
